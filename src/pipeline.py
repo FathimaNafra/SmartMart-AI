@@ -15,7 +15,7 @@ from src.preprocessing.clean_data import (
 from src.transformation.transform_data import transform_data
 
 from src.utils.save_data import save_processed_data
-
+from src.aws.upload_to_s3 import upload_processed_data
 
 def main():
     # ==================================================
@@ -101,6 +101,11 @@ def main():
     print("==============================")
 
     save_processed_data(sales_data)
+    print("\n☁️ Uploading dataset to AWS S3...\n")
+
+    upload_processed_data()
+
+    print("✅ Upload completed!\n")
 
     print("✅ Processed dataset saved!\n")
 
